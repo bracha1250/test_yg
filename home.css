@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+   color: brown;
+}
+.calc{
+top: 50%;
+}
+select{
+    display: none;
+}

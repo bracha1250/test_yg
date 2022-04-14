@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>HomeTest</title>
+    <script type="text/javascript" src="hebcal.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <select id="textstyle">
+
+        <option value="h"></option>
+    </select>
+    <div id="convert">
+        <h1>המרת תאריך לועזי לעברי</h1>
+        <h3>:בחר תאריך רצוי</h3>
+        <input type="date" id="date" />
+        <br />
+        <br />
+        <input type="submit" value="המר" id="calc" />
+   
+        <div id="date-result"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        var d = document, o, year;
+        Hebcal.events.on('ready', function () {
+            year = new Hebcal();
+            function load() {
+                o = d.querySelector('#textstyle').value;
+
+            }
+            load();
+
+            d.querySelector('#calc').onclick = function () {
+              
+                var date = new Hebcal.HDate(d.querySelector('#date').valueAsDate);
+
+                var dt = new Hebcal.HDate(date).setFullYear(date.getFullYear());
+
+
+
+                d.querySelector('#date-result').innerHTML = 'התאריך העברי: ' + dt.toString(o) ;
+
+            };
+
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
